@@ -1,0 +1,57 @@
+import skimage.io as io
+import matplotlib.pyplot as plt
+import skimage.exposure as ex
+
+img1=io.imread('C://Users//kamel//Music//misc//7.2.01.tiff')
+plt.subplot(2,2,1)
+plt.title("original image")
+io.imshow(img1)
+
+img2= ex.equalize_hist(img1)
+plt.subplot(2,2,2)
+plt.title("equalized image")
+io.imshow(img2)
+plt.show()
+
+plt.title("histogram of grayscale image")
+plt.hist(img2.flatten(), bins=256)
+plt.show()
+
+img3=io.imread('C://Users//kamel//Music//misc//4.2.07.tiff')
+plt.subplot(2,2,1)
+plt.title("original image")
+io.imshow(img3)
+
+img4= ex.equalize_hist(img3)
+plt.subplot(2,2,2)
+plt.title("equalized image")
+io.imshow(img4)
+plt.show()
+
+plt.subplot(2,2,1)
+plt.title("histogram")
+plt.hist(img3.flatten(), bins=256)
+plt.subplot(2,2,2)
+plt.title("histogram of blue")
+plt.hist(img3[0].flatten(), bins=256)
+plt.subplot(2,2,3)
+plt.title("histogram of green")
+plt.hist(img3[1].flatten(), bins=256)
+plt.subplot(2,2,4)
+plt.title("histogram of red")
+plt.hist(img3[2].flatten(), bins=256)
+plt.show()
+
+plt.subplot(2,2,1)
+plt.title("equalized histogram")
+plt.hist(img4.flatten(), bins=256)
+plt.subplot(2,2,2)
+plt.title("equalized histogram of blue")
+plt.hist(img4[0].flatten(), bins=256)
+plt.subplot(2,2,3)
+plt.title("equalized histogram of green")
+plt.hist(img4[1].flatten(), bins=256)
+plt.subplot(2,2,4)
+plt.title("equalized histogram of red")
+plt.hist(img4[2].flatten(), bins=256)
+plt.show()
